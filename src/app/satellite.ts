@@ -20,4 +20,5 @@ export class Satellite {
         console.log(this.type)
         return bool
     }
+    
 }
