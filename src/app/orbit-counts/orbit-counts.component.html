@@ -1,5 +1,14 @@
 <h3>Satellite Counts:</h3>
 <div class="counts">
-   <div>Total: <span>{{satellites.length}}</span></div>
-   <div *ngFor="let item of arr">{{item}}: <span>{{total(item, satellites)}}</span></div>
-   </div>
+  <div>
+    Total: <span>{{ satellites.length }}</span>
+  </div>
+  <!-- Method 1 -->
+  <div *ngFor="let item of count | keyvalue">
+    {{ item.key }}: <span>{{ item.value }}</span>
+  </div>
+  <!-- Method 2 -->
+  <!-- <div *ngFor="let item of types">
+   {{ item }}: <span>{{ total(item) }}</span>
+ </div> -->
+</div>

@@ -1,17 +1,23 @@
 <h3>Orbit Report</h3>
 <table>
-   <tr class="header-row">
-      <th class="sortable">Name</th>
-      <th class="sortable">Type</th>
-      <th>Operational</th>
-      <th>Orbit Type</th>
-      <th>Launch Date</th>
-   </tr>
-    <tr *ngFor="let item of satellites">
-        <td (click)= "sort('name')">{{item.name}}</td>
-        <td (click)= "sort('type')" [class.warning]="item.shouldShowWarning()">{{item.type}}</td>
-        <td>{{item.operational}}</td>
-        <td>{{item.orbitType}}</td>
-        <td>{{item.launchDate}}</td>
-    </tr> 
+  <tr class="header-row">
+    <th class="sortable">Name</th>
+    <th class="sortable">Type</th>
+    <th>Operational</th>
+    <th>Orbit Type</th>
+    <th>Launch Date</th>
+  </tr>
+  <!-- Option 2: NgClass (Option 1 in css) -->
+  <tr
+    *ngFor="let item of satellites; let i = index"
+    [ngClass]="{ 'light-row': i % 2 == 0 }"
+  >
+    <td (click)="sort('name')">{{ item.name }}</td>
+    <td (click)="sort('type')" [class.warning]="item.shouldShowWarning()">
+      {{ item.type }}
+    </td>
+    <td>{{ item.operational }}</td>
+    <td>{{ item.orbitType }}</td>
+    <td>{{ item.launchDate }}</td>
+  </tr>
 </table>
